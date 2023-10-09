@@ -14,4 +14,8 @@ func TestIncrement(t *testing.T) {
 	if code.Increment(2) != 3 {
 		t.Fail()
 	}
+
+	if code.Increment(3) != -1 {
+		t.Fail()
+	}
 }
