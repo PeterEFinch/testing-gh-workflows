@@ -11,3 +11,9 @@ func TestIncrement(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestMagic(t *testing.T) {
+	if code.Magic(1) != 42 {
+		t.Fail()
+	}
+}
