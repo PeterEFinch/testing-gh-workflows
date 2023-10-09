@@ -1,0 +1,28 @@
+name: go
+
+# Controls when the workflows will run
+on:
+  pull_request:
+    types: [open, synchronized, reopened]
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  # The 'test' job runs all the go tests
+  test:
+    name: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Setup Go environment
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.20'
+
+      - name: Test
+        run: go test -v -count=1 -timeout=10s ./...
